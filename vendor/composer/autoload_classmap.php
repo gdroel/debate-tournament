@@ -6,6 +6,7 @@ $vendorDir = dirname(dirname(__FILE__));
 $baseDir = dirname($vendorDir);
 
 return array(
+    'AddCategoryToPages' => $baseDir . '/app/database/migrations/2014_08_22_153655_add_category_to_pages.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',
@@ -674,6 +675,8 @@ return array(
     'PHPParser_TemplateLoader' => $vendorDir . '/nikic/php-parser/lib/PHPParser/TemplateLoader.php',
     'PHPParser_Unserializer' => $vendorDir . '/nikic/php-parser/lib/PHPParser/Unserializer.php',
     'PHPParser_Unserializer_XML' => $vendorDir . '/nikic/php-parser/lib/PHPParser/Unserializer/XML.php',
+    'Page' => $baseDir . '/app/models/Page.php',
+    'PageController' => $baseDir . '/app/controllers/PageController.php',
     'Patchwork\\PHP\\Shim\\Iconv' => $vendorDir . '/patchwork/utf8/class/Patchwork/PHP/Shim/Iconv.php',
     'Patchwork\\PHP\\Shim\\Intl' => $vendorDir . '/patchwork/utf8/class/Patchwork/PHP/Shim/Intl.php',
     'Patchwork\\PHP\\Shim\\Mbstring' => $vendorDir . '/patchwork/utf8/class/Patchwork/PHP/Shim/Mbstring.php',

@@ -29,4 +29,13 @@ class TournamentController extends BaseController{
 		
 		return View::make('tournament.show',compact('tournament'));
 	}
+
+	//Protect this with route
+	public function dashboard($tournament){
+
+		$tournament = Tournament::where('name', $tournament)->first();
+
+		return View::make('tournament.dashboard', compact('tournament'));
+
+	}
 }

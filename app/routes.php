@@ -18,4 +18,13 @@ Route::post('/create', 'TournamentController@doCreate');
 
 
 Route::get('/{tournament?}/', 'TournamentController@show');
-Route::get('/{tournament?}/new', 'PageController@createPage');
+Route::get('/{tournament?}/dashboard', 'TournamentController@dashboard');
+//This needs to be protected son only tournament director can access it.
+
+
+
+
+Route::get('/{tournament?}/new', 'PageController@showCreate');
+Route::post('/new', 'PageController@doCreate');
+
+Route::get('/{tournament?}/{page?}', 'PageController@show');
