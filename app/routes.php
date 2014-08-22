@@ -11,7 +11,11 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('hello');
-});
+
+
+Route::get('/create', 'TournamentController@showCreate');
+Route::post('/create', 'TournamentController@doCreate');
+
+
+Route::get('/{tournament?}/', 'TournamentController@show');
+Route::get('/{tournament?}/new', 'PageController@createPage');
