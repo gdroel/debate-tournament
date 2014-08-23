@@ -14,6 +14,7 @@
 </div>
 <div class="col-md-8">
 	<h1>Edit the Home Page</h1>
+	
 	@if($homepage)
 	{{ Form::open(array('action'=>'PageController@doEdit'))}}
 	@else
@@ -23,9 +24,11 @@
 	{{ Form::text('title', $home->title, array('class'=>'form-control')) }}
 	<br>
 	{{ Form::textarea('body',$home->body,array('class'=>'form-control')) }}
+
 	{{ Form::hidden('category','home')}}
 	{{ Form::hidden('slug',$home->slug)}}
 	{{ Form::hidden('tournament_id', $home->tournament_id )}}
+
 	{{ Form::submit()}}
 	{{ Form::close() }}
 </div>

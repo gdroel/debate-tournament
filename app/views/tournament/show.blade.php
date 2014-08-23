@@ -8,7 +8,7 @@
 </div>
 <div class="container">
 	<p>{{ date('d/m/y', strtotime($tournament->register_start)) }}</p>
-@foreach($tournament->pages as $page)
-	{{ $page->title }}
-@endforeach
+
+<h1>{{ $homepage->title }}</h1>
+
 @stop

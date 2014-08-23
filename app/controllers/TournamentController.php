@@ -31,9 +31,11 @@ class TournamentController extends BaseController{
 		$speech_pages = $tournament->pages()->where('category', 'speech')->get();
 		$location_pages = $tournament->pages()->where('category', 'location')->get();
 		$schedule_pages = $tournament->pages()->where('category', 'schedule')->get();
-		$other_pages = $tournament->pages()->where('category','other')->get();
-		
-		return View::make('tournament.show',compact('tournament','speech_pages','debate_pages','location_pages','schedule_pages','other_pages'));
+		$other_pages = $tournament->pages()->where('category','other')->get();	
+		$homepage = $tournament->pages()->where('category','home');
+		$homepage = $homepage->first();
+
+		return View::make('tournament.show',compact('tournament','speech_pages','debate_pages','location_pages','schedule_pages','other_pages','homepage'));
 	}
 
 	//Protect this with route
@@ -41,6 +43,7 @@ class TournamentController extends BaseController{
 
 		$tournament = Tournament::where('name', $tournament)->first();
 
+		//Checking if the homepage exists. If the homepage exists, the user can edit it. If not, they can create a new homepage.
 		if($tournament->pages()->where('category','home')->exists()){
 
 			$homepage = True;
@@ -50,6 +53,7 @@ class TournamentController extends BaseController{
 			$homepage = False;
 		}
 
+		//Getting the actual homepage.
 		$home = $tournament->pages()->where('category','home')->first();
 
 		return View::make('tournament.dashboard', compact('tournament','homepage','home'));
