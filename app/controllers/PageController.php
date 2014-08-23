@@ -21,14 +21,18 @@ class PageController extends BaseController{
 
 	public function doEdit(){
 
-		$page = Page::where('tournament_id', Input::get('tournament_id'))->where('category','home')->get();
+		$tournament = Tournament::where('id',Input::get('tournament_id'))->first();
+
+		$page = $tournament->pages()->where('slug',Input::get('slug'))->first();
 
 		$page->title = Input::get('title');
 		$page->body = Input::get('body');
 		$page->category = Input::get('category');
+		$page->slug = Str::slug(Input::get('title'));
+		$page->tournament_id = Input::get('tournament_id');
 		$page->image_path = '';
 
-		$page->save();
+		$tournament->pages()->save($page);
 	}
 
 	public function showCreate($tournament){

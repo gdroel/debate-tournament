@@ -24,7 +24,8 @@
 	<br>
 	{{ Form::textarea('body',$home->body,array('class'=>'form-control')) }}
 	{{ Form::hidden('category','home')}}
-	{{ Form::hidden('tournament_id',$tournament->id)}}
+	{{ Form::hidden('slug',$home->slug)}}
+	{{ Form::hidden('tournament_id', $home->tournament_id )}}
 	{{ Form::submit()}}
 	{{ Form::close() }}
 </div>
