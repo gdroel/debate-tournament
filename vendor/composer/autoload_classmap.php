@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddCategoryToPages' => $baseDir . '/app/database/migrations/2014_08_22_153655_add_category_to_pages.php',
+    'AddSlugToPages' => $baseDir . '/app/database/migrations/2014_08_22_172306_add_slug_to_pages.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
     'Boris\\CLIOptionsHandler' => $vendorDir . '/d11wtq/boris/lib/Boris/CLIOptionsHandler.php',

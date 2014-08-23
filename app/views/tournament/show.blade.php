@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('tournament-layout')
 
 @section('content')
 

@@ -28,17 +28,57 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#"></a>
+      <a class="navbar-brand" href="#">{{ $tournament->name }}</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Debate Information<span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Debate<span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
+            @foreach($debate_pages as $page)
+              <li><a href="{{ URL::to($tournament->name.'/'.$page->slug) }}">{{ $page->title }}</a></li>
+            @endforeach
           </ul>
         </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Speech<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($speech_pages as $page)
+            <li><a href="{{ URL::to($tournament->name.'/'.$page->slug) }}">{{ $page->title }}</a></li>
+            @endforeach
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Location<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($location_pages as $page)
+            <li><a href="{{ URL::to($tournament->name.'/'.$page->slug) }}">{{ $page->title }}</a></li>
+            @endforeach
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Schedule<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($schedule_pages as $page)
+            <li><a href="{{ URL::to($tournament->name.'/'.$page->slug) }}">{{ $page->title }}</a></li>
+            @endforeach
+          </ul>
+        </li>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Other<span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            @foreach($other_pages as $page)
+            <li><a href="{{ URL::to($tournament->name.'/'.$page->slug) }}">{{ $page->title }}</a></li>
+            @endforeach
+          </ul>
+        </li>
+        
       </ul>
       <form class="navbar-form navbar-left" role="search">
         <div class="form-group">

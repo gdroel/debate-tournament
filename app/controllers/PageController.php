@@ -11,9 +11,22 @@ class PageController extends BaseController{
 		$page->title = Input::get('title');
 		$page->body = Input::get('body');
 		$page->image_path = "";
+		$page->slug = Str::slug(Input::get('title'));
 		$page->category = Input::get('category');
 
 		$page->tournament_id = Input::get('tournament_id');
+
+		$page->save();
+	}
+
+	public function doEdit(){
+
+		$page = Page::where('tournament_id', Input::get('tournament_id'))->where('category','home')->get();
+
+		$page->title = Input::get('title');
+		$page->body = Input::get('body');
+		$page->category = Input::get('category');
+		$page->image_path = '';
 
 		$page->save();
 	}
@@ -29,7 +42,7 @@ class PageController extends BaseController{
 
 		$tournament = Tournament::where('name', $tournament)->first();
 
-		$page = $tournament->pages()->where('title',$page)->get();
+		$page = $tournament->pages()->where('slug',$page)->get();
 
 		return View::make('page.show', compact('page'));
 

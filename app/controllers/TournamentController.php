@@ -26,8 +26,14 @@ class TournamentController extends BaseController{
 	public function show($tournament){
 
 		$tournament = Tournament::where('name',$tournament)->first();
+
+		$debate_pages = $tournament->pages()->where('category','debate')->get();
+		$speech_pages = $tournament->pages()->where('category', 'speech')->get();
+		$location_pages = $tournament->pages()->where('category', 'location')->get();
+		$schedule_pages = $tournament->pages()->where('category', 'schedule')->get();
+		$other_pages = $tournament->pages()->where('category','other')->get();
 		
-		return View::make('tournament.show',compact('tournament'));
+		return View::make('tournament.show',compact('tournament','speech_pages','debate_pages','location_pages','schedule_pages','other_pages'));
 	}
 
 	//Protect this with route
@@ -35,7 +41,18 @@ class TournamentController extends BaseController{
 
 		$tournament = Tournament::where('name', $tournament)->first();
 
-		return View::make('tournament.dashboard', compact('tournament'));
+		if($tournament->pages()->where('category','home')->exists()){
+
+			$homepage = True;
+		}
+		else{
+
+			$homepage = False;
+		}
+
+		$home = $tournament->pages()->where('category','home')->first();
+
+		return View::make('tournament.dashboard', compact('tournament','homepage','home'));
 
 	}
 }
