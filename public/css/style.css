@@ -1,0 +1,64 @@
+.navbar-default{
+
+	background-color: white;
+	padding: 10px;
+	font-size: 15px;
+}
+
+h1{
+
+	font-family: 'Rufina', serif;
+
+}
+
+h2{
+
+	font-family: 'Sintony', sans-serif;
+	
+}
+
+h3{
+
+	font-family: 'Sintony', sans-serif;
+
+}
+
+p{
+
+	font-family: 'Sintony', sans-serif;
+}
+
+a{
+
+	font-family: 'Sintony', sans-serif;
+}
+
+.jumbotron{
+
+	margin-top: -20px;
+	background: none;
+}
+
+.bg1{
+
+	top:-20px;
+	height: 300px;
+	background-image: url('../images/light_grey.png');
+	background-repeat: repeat;
+}
+
+.navbar-nav > li{
+  padding-left:5px;
+  padding-right:5px;
+}
+
+table.info{
+
+	margin-top: 40px;
+}
+
+/**COlOR STYLES**/
+.gray{
+
+	color:gray;
+}

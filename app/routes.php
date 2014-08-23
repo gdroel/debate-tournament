@@ -26,6 +26,8 @@ Route::get('/{tournament?}/dashboard', 'TournamentController@dashboard');
 
 Route::get('/{tournament?}/new', 'PageController@showCreate');
 Route::post('/new', 'PageController@doCreate');
+
+Route::get('{tournament?}/{page?}/edit', 'PageController@showEdit');
 Route::post('/edit', 'PageController@doEdit');
 
 Route::get('/{tournament?}/{page?}', 'PageController@show');

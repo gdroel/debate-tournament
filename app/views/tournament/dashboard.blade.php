@@ -4,12 +4,17 @@
 <div class="container">
 <div class="col-md-4">
 	<h1>{{ $tournament->name }}</h1>
-	<table>
+	<table class="table">
+	<tbody>
 	@foreach($tournament->pages as $page)
-	<tr>
-	<td><a href="{{ action('PageController@show', $tournament->name, $page->slug) }}">{{ $page->title }}</a></td>
-	</tr>
+		<tr>
+			<td><a href="{{ action('PageController@show', $tournament->name, $page->slug) }}">{{ $page->title }}</a></td>
+		</tr>
+		<tr>
+			<td><a href="{{ URL::to($tournament->name.'/'.$page->slug.'/edit') }}">Edit</a></td>
+		</tr>
 	@endforeach
+	</tbody>
 	</table>
 </div>
 <div class="col-md-8">

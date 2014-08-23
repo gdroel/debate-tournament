@@ -46,10 +46,24 @@ class PageController extends BaseController{
 
 		$tournament = Tournament::where('name', $tournament)->first();
 
-		$page = $tournament->pages()->where('slug',$page)->get();
+		$page = $tournament->pages()->where('slug',$page)->first();
 
-		return View::make('page.show', compact('page'));
+		$debate_pages = $tournament->pages()->where('category','debate')->get();
+		$speech_pages = $tournament->pages()->where('category', 'speech')->get();
+		$location_pages = $tournament->pages()->where('category', 'location')->get();
+		$schedule_pages = $tournament->pages()->where('category', 'schedule')->get();
+		$other_pages = $tournament->pages()->where('category','other')->get();
 
+		return View::make('page.show', compact('page','tournament','debate_pages','speech_pages','location_pages','schedule_pages','other_pages'));
+
+	}
+
+	public function showEdit($tournament, $page){
+
+		$tournament = Tournament::where('name',$tournament)->first();
+		$page = $tournament->pages()->where('slug', $page)->first();
+
+		return View::make('page.edit',compact('page'));
 	}
 
 }
