@@ -55,8 +55,8 @@ class TournamentController extends BaseController{
 
 		//Getting the actual homepage.
 		$home = $tournament->pages()->where('category','home')->first();
-
-		return View::make('tournament.dashboard', compact('tournament','homepage','home'));
+		$events = $tournament->events()->get();
+		return View::make('tournament.dashboard', compact('tournament','homepage','home','events'));
 
 	}
 }

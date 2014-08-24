@@ -11,7 +11,8 @@
 |
 */
 
-
+Route::get('register','UserController@showRegister');
+Route::post('register','UserController@doRegister');
 
 Route::get('/create', 'TournamentController@showCreate');
 Route::post('/create', 'TournamentController@doCreate');
@@ -20,12 +21,11 @@ Route::post('/create', 'TournamentController@doCreate');
 Route::get('/{tournament?}/', 'TournamentController@show');
 Route::get('/{tournament?}/dashboard', 'TournamentController@dashboard');
 //This needs to be protected son only tournament director can access it.
-
-
-
-
 Route::get('/{tournament?}/new', 'PageController@showCreate');
 Route::post('/new', 'PageController@doCreate');
+
+Route::get('/{tournament?}/newevent','EventController@showCreate');
+Route::post('/newevent','EventController@doCreate');
 
 Route::get('{tournament?}/{page?}/edit', 'PageController@showEdit');
 Route::post('/edit', 'PageController@doEdit');

@@ -23,4 +23,17 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
+	/**A Tournament Will have many events
+	A user will have many events
+	An event will have many users.
+	When a user joins an event, a new relationship will start.
+
+	$tournament->events()->where('name', $event)->users()
+
+	**/
+	public function events(){
+
+		return $this->belongsToMany('Event');
+	}
+
 }

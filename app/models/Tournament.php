@@ -6,4 +6,9 @@ class Tournament extends Eloquent{
 
 		return $this->hasMany('Page');
 	}
+
+	public function events(){
+
+		return $this->hasMany('EventModel');
+	}
 }
