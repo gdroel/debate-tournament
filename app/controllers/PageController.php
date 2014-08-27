@@ -33,6 +33,8 @@ class PageController extends BaseController{
 		$page->image_path = '';
 
 		$tournament->pages()->save($page);
+
+		return Redirect::to($tournament->name);
 	}
 
 	public function showCreate($tournament){

@@ -6,11 +6,13 @@ class EventModel extends Eloquent{
 
 	public function users(){
 
-		return $this->belongsToMany('User');
+		return $this->belongsToMany('User','user_event','event_id','user_id');
 	}
 
 	public function tournament(){
 
 		return $this->belongsTo('Tournament');
 	}
+
+
 }

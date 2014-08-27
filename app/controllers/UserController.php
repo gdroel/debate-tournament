@@ -19,4 +19,28 @@ class UserController extends BaseController{
 
 		$user->save();
 	}
+
+	public function showLogin(){
+
+		return View::make('user.login');
+	}
+
+	public function doLogin(){
+
+		if(Auth::attempt(array(
+			'email'=>Input::get('email','password'),
+			'password'=>Input::get('password'))))
+		{
+
+			echo "success";
+		}
+
+		else{
+
+			echo 'fail';
+		}
+
+
+
+	}
 }

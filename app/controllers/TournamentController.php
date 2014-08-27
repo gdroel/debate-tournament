@@ -1,7 +1,7 @@
 <?php
 
 class TournamentController extends BaseController{
-	
+
 	public function showCreate(){
 
 		return View::make('tournament.create');
@@ -21,6 +21,7 @@ class TournamentController extends BaseController{
 		$tournament->tournament_end =	Input::get('tournament_end');
 
 		$tournament->save();
+
 	}
 
 	public function show($tournament){
@@ -31,9 +32,17 @@ class TournamentController extends BaseController{
 		$speech_pages = $tournament->pages()->where('category', 'speech')->get();
 		$location_pages = $tournament->pages()->where('category', 'location')->get();
 		$schedule_pages = $tournament->pages()->where('category', 'schedule')->get();
-		$other_pages = $tournament->pages()->where('category','other')->get();	
-		$homepage = $tournament->pages()->where('category','home');
-		$homepage = $homepage->first();
+		$other_pages = $tournament->pages()->where('category','other')->get();
+		$homepage = $tournament->pages()->where('category','home')->first();
+
+		if($homepage){
+
+
+		}
+		else{
+
+			$homepage="";
+		}
 
 		return View::make('tournament.show',compact('tournament','speech_pages','debate_pages','location_pages','schedule_pages','other_pages','homepage'));
 	}
@@ -55,7 +64,25 @@ class TournamentController extends BaseController{
 
 		//Getting the actual homepage.
 		$home = $tournament->pages()->where('category','home')->first();
+
+		if($home){
+		}
+
+		else{
+
+			$home='';
+		}
+
 		$events = $tournament->events()->get();
+
+		if($events){
+		}
+
+		else{
+
+			$events = '';
+		}
+
 		return View::make('tournament.dashboard', compact('tournament','homepage','home','events'));
 
 	}

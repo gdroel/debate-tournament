@@ -7,11 +7,14 @@
 	{{ Form::open(array('action'=>'PageController@doEdit')) }}
 	{{ Form::text('title', $page->title, array('class'=>'form-control') )}}
 	<br>
-	{{ Form::textarea('body', $page->body, array('class'=>'form-control') )}}
+	{{ Form::textarea('body', $page->body, array('class'=>'form-control','id'=>'body') )}}
 	{{ Form::hidden('category','$page->category')}}
 	{{ Form::hidden('slug',$page->slug)}}
 	{{ Form::hidden('tournament_id', $page->tournament_id )}}
 	{{ Form::submit() }}
 	{{ Form::close() }}
 </div>
+<script>
+CKEDITOR.replace('body');
+</script>
 @stop

@@ -25,6 +25,19 @@ class EventController extends BaseController{
 
 		$tournament = Tournament::where('name',$tournament)->first();
 
-		return View::make('index');
+		return View::make('event.index',compact('tournament'));
+	}
+
+	public function RegisterEvent(){
+
+		$tournament_name = Input::get('tournament');
+		$event_name = Input::get('event');
+		$user_id = Input::get('user_id');
+
+		$tournament = Tournament::where('name',$tournament_name)->first();
+		$event = $tournament->events()->where('name',$event_name)->first();
+		$user = User::where('id',$user_id)->first();
+
+		$event->users()->save($user);
 	}
 }

@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'AddCategoryToPages' => $baseDir . '/app/database/migrations/2014_08_22_153655_add_category_to_pages.php',
+    'AddRememberTokenToUsers' => $baseDir . '/app/database/migrations/2014_08_26_041040_add_remember_token_to_users.php',
     'AddTournamentIdToEvents' => $baseDir . '/app/database/migrations/2014_08_24_042049_add_tournament_id_to_events.php',
     'BaseController' => $baseDir . '/app/controllers/BaseController.php',
     'Boris\\Boris' => $vendorDir . '/d11wtq/boris/lib/Boris/Boris.php',
@@ -47,7 +48,8 @@ return array(
     'Crypt_TripleDES' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/TripleDES.php',
     'Crypt_Twofish' => $vendorDir . '/phpseclib/phpseclib/phpseclib/Crypt/Twofish.php',
     'DatabaseSeeder' => $baseDir . '/app/database/seeds/DatabaseSeeder.php',
-    'Event' => $baseDir . '/app/models/Event.php',
+    'EventController' => $baseDir . '/app/controllers/EventController.php',
+    'EventModel' => $baseDir . '/app/models/EventModel.php',
     'File_ANSI' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ANSI.php',
     'File_ASN1' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',
     'File_ASN1_Element' => $vendorDir . '/phpseclib/phpseclib/phpseclib/File/ASN1.php',

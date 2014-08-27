@@ -10,9 +10,11 @@
 </div>
 <div class="container">
 	<div class="col-md-8">
+	@if($homepage != "")
 	<h1>{{ $homepage->title }}</h1>
 	<hr>
 	<p>{{ $homepage->body }}</p>
+	@endif
 	</div>
 	<div class="col-md-4">
 	<table class="table table-bordered info">
